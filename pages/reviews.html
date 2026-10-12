@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Отзывы учеников школы Полиглот о курсах английского и китайского языка." />
     <title>Отзывы | Полиглот</title>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css?v=20261011" />
   </head>
   <body>
+    <a class="sr-only" href="#main">Перейти к содержанию</a>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-main">
-          <div class="phone-group">
-            <span class="phone-icon">☎</span>
-            <a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
-            <span class="work-hours">с 10:00 до 20:00</span>
-            <span class="divider">|</span>
-          </div>
+          <a class="topbar-phone" href="tel:+74212663568">
+            <span class="phone-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+              </svg>
+            </span>
+            <span class="topbar-phone-label" data-contact-field="phone-primary">+66-35-68</span>
+          </a>
+          <span class="work-hours">Пн–Пт, с 10:00 до 20:00</span>
         </div>
 
         <div class="topbar-side">
           <span data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</span>
-          <span class="dot-separator">•</span>
+          <span class="dot-separator" aria-hidden="true">•</span>
           <span data-contact-field="city">г. Хабаровск</span>
         </div>
       </div>
@@ -29,18 +34,18 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="../index.html" class="brand" aria-label="Полиглот главная">
-          <span class="brand-mark">П</span>
+        <a href="../index.html" class="brand" aria-label="Полиглот — на главную">
+          <span class="brand-mark" aria-hidden="true">П</span>
           <span>Полиглот</span>
         </a>
 
-        <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="primary-nav" aria-label="Основная навигация">
           <a href="about.html">О школе</a>
           <a href="programs.html">Программы</a>
           <a href="benefits.html">Преимущества</a>
@@ -51,7 +56,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section container page-intro">
         <p class="eyebrow">Отзывы</p>
         <h1>Успехи наших учеников говорят лучше любых слов.</h1>
@@ -64,7 +69,7 @@
         <div class="container">
           <div class="reviews-grid">
             <blockquote class="review-card">
-              “Занятия очень понятные и живые. Я стала говорить увереннее и перестала бояться общения на английском.”
+              “Занятия очень понятные и живые. Я стала говорить увереннее и перестала бояться общения на английском. Результат заметен уже после нескольких месяцев.”
               <footer>
                 <strong>Елена М.</strong>
                 <span>Английский для взрослых</span>
@@ -72,7 +77,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Китайский язык раньше казался почти невозможным, но преподаватель объяснял доступно и интересно. Очень помогло.”
+              “Китайский язык раньше казался сложным, но преподаватель объяснял доступно и интересно. Уроки не перегружают, но помогают прогрессировать стабильно.”
               <footer>
                 <strong>Дмитрий К.</strong>
                 <span>Китайский язык</span>
@@ -80,7 +85,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Школа помогла ребёнку не просто выучить язык, но и начать говорить с удовольствием. Уроки всегда интересные.”
+              “Школа помогла ребёнку не просто выучить язык, но и начать говорить с удовольствием. Уроки всегда интересные и вовлекающие.”
               <footer>
                 <strong>Алина П.</strong>
                 <span>Для школьников</span>
@@ -88,7 +93,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Мне важно было не просто знать грамматику, а уметь говорить на реальном уровне. Здесь именно так и происходит.”
+              “Мне было важно не просто знать правила, а уметь говорить на уровне реального общения. Здесь именно так и строится обучение.”
               <footer>
                 <strong>Сергей В.</strong>
                 <span>Разговорный английский</span>
@@ -96,7 +101,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Материал даётся без перегруза, но результат заметен быстро. Очень удобно и комфортно учиться.”
+              “Материал даётся без перегруза, но прогресс заметен быстро. Очень комфортно учиться, чувствуется индивидуальный подход.”
               <footer>
                 <strong>Марина С.</strong>
                 <span>Подготовка к экзаменам</span>
@@ -104,7 +109,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Я выбрала курс по китайскому языку и не пожалела. Приятная атмосфера, понятные объяснения, хорошая практика.”
+              “Выбрала курс по китайскому языку и не пожалела: атмосфера приятная, объяснения понятные, практика хорошая, результат ощутимый.”
               <footer>
                 <strong>Иван Т.</strong>
                 <span>Китайский язык</span>
@@ -141,11 +146,16 @@
         <div class="footer-meta">
           <p data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</p>
           <p><span data-contact-field="city">г. Хабаровск</span></p>
+          <a href="https://www.instagram.com/poliglot27/" data-contact-field="instagram" target="_blank" rel="noopener noreferrer">@poliglot27</a>
           <p data-year></p>
         </div>
       </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script src="../js/contacts.js?v=20261011"></script>
+    <script src="../js/navigation.js?v=20261011"></script>
+    <script src="../js/modals.js?v=20261011"></script>
+    <script src="../js/slider.js?v=20261011"></script>
+    <script src="../js/map.js?v=20261011"></script>
   </body>
 </html>

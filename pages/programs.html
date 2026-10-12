@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Программы обучения английскому и китайскому языку в школе Полиглот." />
     <title>Программы | Полиглот</title>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css?v=20261011" />
   </head>
   <body>
+    <a class="sr-only" href="#main">Перейти к содержанию</a>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-main">
-          <div class="phone-group">
-            <span class="phone-icon">☎</span>
-            <a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
-            <span class="work-hours">с 10:00 до 20:00</span>
-            <span class="divider">|</span>
-            <a href="contacts.html" class="link-muted">Оставить заявку</a>
-          </div>
+          <a class="topbar-phone" href="tel:+74212663568">
+            <span class="phone-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+              </svg>
+            </span>
+            <span class="topbar-phone-label" data-contact-field="phone-primary">+66-35-68</span>
+          </a>
+          <span class="work-hours">Пн–Пт, с 10:00 до 20:00</span>
         </div>
 
         <div class="topbar-side">
           <span data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</span>
-          <span class="dot-separator">•</span>
+          <span class="dot-separator" aria-hidden="true">•</span>
           <span data-contact-field="city">г. Хабаровск</span>
         </div>
       </div>
@@ -30,18 +34,18 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="../index.html" class="brand" aria-label="Полиглот главная">
-          <span class="brand-mark">П</span>
+        <a href="../index.html" class="brand" aria-label="Полиглот — на главную">
+          <span class="brand-mark" aria-hidden="true">П</span>
           <span>Полиглот</span>
         </a>
 
-        <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="primary-nav" aria-label="Основная навигация">
           <a href="about.html">О школе</a>
           <a href="programs.html">Программы</a>
           <a href="benefits.html">Преимущества</a>
@@ -52,7 +56,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section container page-intro">
         <p class="eyebrow">Программы обучения</p>
         <h1>Подбираем формат обучения под ваш возраст, задачу и темп.</h1>
@@ -66,41 +70,28 @@
         <div class="cards-grid">
           <article class="course-card featured">
             <span class="tag">Популярно</span>
-            <h3>Английский для взрослых</h3>
-            <p>Разговорная практика, поддержка в реальном общении и работа над уверенностью.</p>
+            <img class="program-image" src="../assets/img/ca73ae72-3d2f-4038-96e6-c7a0783b3871.jpg" alt="Урок английского языка" />
+            <h3>Английский для школьников</h3>
+            <p>Программа для детей с 1 по 8 класс: доступная подача материала, постепенный прогресс и интерес к языку.</p>
             <ul>
-              <li>Для начинающих и среднего уровня</li>
-              <li>Группы и индивидуально</li>
-              <li>Практика на живых ситуациях</li>
+              <li>Доступный темп и понятные объяснения</li>
+              <li>Работа с грамматикой и речью</li>
+              <li>Поддержка мотивации и уверенности</li>
             </ul>
             <div class="price-row">
-              <strong>от 2 000 ₽</strong>
-              <span>/ месяц</span>
-            </div>
-          </article>
-
-          <article class="course-card">
-            <span class="tag alt">Китайский</span>
-            <h3>Китайский язык</h3>
-            <p>Освоение языка с нуля и уверенное использование в речи, чтении и переписке.</p>
-            <ul>
-              <li>Уроки для детей и взрослых</li>
-              <li>Письмо, речь и аудирование</li>
-              <li>Постоянная практика общения</li>
-            </ul>
-            <div class="price-row">
-              <strong>от 2 200 ₽</strong>
+              <strong>от 1 800 ₽</strong>
               <span>/ месяц</span>
             </div>
           </article>
 
           <article class="course-card">
             <span class="tag alt">Подготовка</span>
+            <img class="program-image" src="../assets/img/046c40ef-adfb-4363-90e0-832285982ba4.jpg" alt="Подготовка к экзаменам" />
             <h3>ОГЭ / ЕГЭ</h3>
-            <p>Пошаговая подготовка, системная работа над типовыми заданиями и экзаменационным стрессом.</p>
+            <p>Пошаговая подготовка по грамматике, чтению, аудированию и устной речи с упором на экзаменационные задания.</p>
             <ul>
-              <li>Диагностика уровня</li>
-              <li>Проверка и закрепление навыков</li>
+              <li>Диагностика и контроль прогресса</li>
+              <li>Проверка слабых мест</li>
               <li>Фокус на результат</li>
             </ul>
             <div class="price-row">
@@ -110,27 +101,45 @@
           </article>
 
           <article class="course-card">
-            <span class="tag alt">Школьники</span>
-            <h3>Для детей</h3>
-            <p>Интересные занятия, понятные объяснения, темп, который не давит и не утомляет.</p>
+            <span class="tag alt">Разговорный</span>
+            <img class="program-image" src="../assets/img/3d200acb-bfb2-49eb-8230-8fb5ad8568fe.jpg" alt="Разговорный английский на занятии" />
+            <h3>Разговорный английский</h3>
+            <p>Курс для взрослых, которым важно не просто знать язык, а уверенно говорить и понимать собеседника.</p>
             <ul>
-              <li>Поддержка мотивации</li>
-              <li>Планомерный прогресс</li>
-              <li>Простая и понятная подача</li>
+              <li>Живая практика общения</li>
+              <li>Реальные темы и ситуации</li>
+              <li>Группы и индивидуально</li>
             </ul>
             <div class="price-row">
-              <strong>от 1 800 ₽</strong>
+              <strong>от 2 000 ₽</strong>
+              <span>/ месяц</span>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <span class="tag alt">Китайский</span>
+            <img class="program-image" src="../assets/img/564x375-templates-wt_37697-images-kurs2.jpg" alt="Изучение китайского языка" />
+            <h3>Китайский для детей и подростков</h3>
+            <p>Программа для детей с 10 лет, а также для подростков и взрослых от 14 лет: от базового уровня до уверенного общения.</p>
+            <ul>
+              <li>Письмо, говорение, аудирование</li>
+              <li>Построение навыков на практике</li>
+              <li>Подход под возраст и цель</li>
+            </ul>
+            <div class="price-row">
+              <strong>от 2 200 ₽</strong>
               <span>/ месяц</span>
             </div>
           </article>
 
           <article class="course-card">
             <span class="tag alt">Индивидуально</span>
-            <h3>Репетитор</h3>
-            <p>Гибкий график и персональная траектория обучения, построенная под ваши цели.</p>
+            <img class="program-image" src="../assets/img/265x400-templates-wt_37697-images-kurs3.jpg" alt="Индивидуальные занятия по языкам" />
+            <h3>Индивидуальные занятия</h3>
+            <p>Гибкий темп, персональная траектория и работа только над теми задачами, которые важны именно вам.</p>
             <ul>
               <li>Подбор темпа и задач</li>
-              <li>Работа над пробелами</li>
+              <li>Фокус на проблемных местах</li>
               <li>Максимальная концентрация</li>
             </ul>
             <div class="price-row">
@@ -140,16 +149,33 @@
           </article>
 
           <article class="course-card">
-            <span class="tag alt">Бизнес</span>
-            <h3>Деловой английский</h3>
-            <p>Курсы для профессионального общения, деловой переписки и уверенных переговоров.</p>
+            <span class="tag alt">Для взрослых</span>
+            <img class="program-image" src="../assets/img/0bf42144-c53d-45f7-96e3-45ca40e3db76.jpg" alt="Занятия для взрослых" />
+            <h3>Курсы для взрослых</h3>
+            <p>Для тех, кто хочет развивать карьеру, путешествовать, общаться и чувствовать себя уверенно в реальной жизни.</p>
             <ul>
-              <li>Для взрослых и команды</li>
-              <li>Практика деловой речи</li>
-              <li>Фокус на реальных задачах</li>
+              <li>Группы и частные занятия</li>
+              <li>Работа над речевой практикой</li>
+              <li>Гибкий график обучения</li>
             </ul>
             <div class="price-row">
-              <strong>от 2 800 ₽</strong>
+              <strong>от 2 300 ₽</strong>
+              <span>/ месяц</span>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <span class="tag alt">Продвинутый</span>
+            <img class="program-image" src="../assets/img/70d5e712-b9c7-4113-823b-f190108d170a.jpg" alt="Занятие в группе продвинутого уровня" />
+            <h3>Группы продвинутого уровня</h3>
+            <p>Для молодёжи и студентов, которые уже имеют хороший уровень языка и хотят говорить свободно и уверенно.</p>
+            <ul>
+              <li>Свободное общение на языке</li>
+              <li>Актуальные темы и дискуссии</li>
+              <li>Совершенствование речи и аудирования</li>
+            </ul>
+            <div class="price-row">
+              <strong>от 2 000 ₽</strong>
               <span>/ месяц</span>
             </div>
           </article>
@@ -183,11 +209,16 @@
         <div class="footer-meta">
           <p data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</p>
           <p><span data-contact-field="city">г. Хабаровск</span></p>
+          <a href="https://www.instagram.com/poliglot27/" data-contact-field="instagram" target="_blank" rel="noopener noreferrer">@poliglot27</a>
           <p data-year></p>
         </div>
       </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script src="../js/contacts.js?v=20261011"></script>
+    <script src="../js/navigation.js?v=20261011"></script>
+    <script src="../js/modals.js?v=20261011"></script>
+    <script src="../js/slider.js?v=20261011"></script>
+    <script src="../js/map.js?v=20261011"></script>
   </body>
 </html>

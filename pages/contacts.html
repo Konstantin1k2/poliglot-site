@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Контакты школы Полиглот: адрес, телефон и запись на занятия." />
     <title>Контакты | Полиглот</title>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css?v=20261011" />
   </head>
   <body>
+    <a class="sr-only" href="#main">Перейти к содержанию</a>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-main">
-          <div class="phone-group">
-            <span class="phone-icon">☎</span>
-            <a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
-            <span class="work-hours">с 10:00 до 20:00</span>
-            <span class="divider">|</span>
-            <a href="contacts.html" class="link-muted">Оставить заявку</a>
-          </div>
+          <a class="topbar-phone" href="tel:+74212663568">
+            <span class="phone-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+              </svg>
+            </span>
+            <span class="topbar-phone-label" data-contact-field="phone-primary">+66-35-68</span>
+          </a>
+          <span class="work-hours">Пн–Пт, с 10:00 до 20:00</span>
         </div>
 
         <div class="topbar-side">
           <span data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</span>
-          <span class="dot-separator">•</span>
+          <span class="dot-separator" aria-hidden="true">•</span>
           <span data-contact-field="city">г. Хабаровск</span>
         </div>
       </div>
@@ -30,18 +34,18 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="../index.html" class="brand" aria-label="Полиглот главная">
-          <span class="brand-mark">П</span>
+        <a href="../index.html" class="brand" aria-label="Полиглот — на главную">
+          <span class="brand-mark" aria-hidden="true">П</span>
           <span>Полиглот</span>
         </a>
 
-        <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="primary-nav" aria-label="Основная навигация">
           <a href="about.html">О школе</a>
           <a href="programs.html">Программы</a>
           <a href="benefits.html">Преимущества</a>
@@ -52,112 +56,128 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="section container">
         <div class="section-heading narrow">
           <p class="eyebrow">Контакты</p>
           <h1>Запишитесь на пробный урок или узнайте больше о формате обучения.</h1>
         </div>
 
-        <div class="contact-grid">
-          <div class="feature-box">
-            <h3>Адрес</h3>
-            <p data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</p>
-            <p data-contact-field="city">г. Хабаровск</p>
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <div class="feature-box contact-panel">
+              <p class="eyebrow">Как связаться</p>
+              <h2>Приходите на бесплатное тестирование и подберите удобный формат занятий.</h2>
+
+              <div class="contact-info-list">
+                <div class="contact-info-row">
+                  <span class="contact-label">Адрес</span>
+                  <span data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</span>
+                </div>
+                <div class="contact-info-row">
+                  <span class="contact-label">Город</span>
+                  <span data-contact-field="city">г. Хабаровск</span>
+                </div>
+                <div class="contact-info-row">
+                  <span class="contact-label">Телефон</span>
+                  <a href="tel:+74212663568" data-contact-field="phone-primary">+66-35-68</a>
+                </div>
+                <div class="contact-info-row">
+                  <span class="contact-label">График</span>
+                  <span data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</span>
+                </div>
+                <div class="contact-info-row">
+                  <span class="contact-label">Instagram</span>
+                  <a href="https://www.instagram.com/poliglot27/" data-contact-field="instagram" target="_blank" rel="noopener noreferrer">@poliglot27</a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="feature-box">
-            <h3>Телефон</h3>
-            <p><a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a></p>
-            <p><a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a></p>
-          </div>
+          <div class="contact-visual">
+            <div class="map-surface map-surface-external" aria-label="Карта офиса">
+              <iframe
+                class="map-iframe"
+                title="Карта офиса Полиглот"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=135.0389,48.5340,135.0559,48.5416&layer=mapnik&marker=48.537778,135.047443"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
 
-          <div class="feature-box">
-            <h3>График</h3>
-            <p data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</p>
-            <p>По предварительной записи</p>
+              <div class="map-toolbar">
+                <button type="button" class="map-zoom-btn" data-map-action="zoom-in" aria-label="Увеличить карту">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </button>
+                <button type="button" class="map-zoom-btn" data-map-action="zoom-out" aria-label="Уменьшить карту">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+                    <path d="M5 12h14" />
+                  </svg>
+                </button>
+              </div>
+
+              <a
+                class="map-view-btn"
+                href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
+                data-contact-field="map-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Посмотреть на карте →
+              </a>
+
+              <div class="map-address-card">
+                <div class="map-header">
+                  <h3 data-contact-field="address">ул. Профессора Даниловского, 29а</h3>
+                  <button type="button" class="map-close-btn" aria-label="Скрыть карточку адреса">×</button>
+                </div>
+
+                <div class="map-address-meta">
+                  <span>2 этаж, офис 21</span>
+                </div>
+
+                <div class="map-phone-row">
+                  <span class="map-icon">☎</span>
+                  <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
+                </div>
+
+                <div class="map-hours-row">
+                  <span class="map-icon">⏰</span>
+                  <span data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</span>
+                </div>
+
+                <div class="map-detail-row">
+                  <span class="map-icon">📍</span>
+                  <span>в центре Хабаровска</span>
+                </div>
+
+                <div class="map-cta-row">
+                  <a
+                    class="map-primary-btn"
+                    href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
+                    data-contact-field="map-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Найти вход
+                  </a>
+                  <a
+                    class="map-secondary-btn"
+                    href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
+                    data-contact-field="map-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Маршрут
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section map-showcase" aria-label="Как нас найти">
-        <div class="container map-shell">
-          <div class="map-surface map-surface-external" aria-label="Карта офиса">
-            <iframe
-              class="map-iframe"
-              title="Карта офиса Полиглот"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=135.0620,48.4760,135.0810,48.4850&layer=mapnik&marker=48.4795,135.0718"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-
-            <div class="map-controls">
-              <button type="button" aria-label="Увеличить">+</button>
-              <button type="button" aria-label="Уменьшить">−</button>
-              <span>2GIS</span>
-            </div>
-
-            <a
-              class="map-view-btn"
-              href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-              data-contact-field="map-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Посмотреть на карте Хабаровска →
-            </a>
-
-            <div class="map-address-card">
-              <div class="map-header">
-                <h3>ул. Профессора Даниловского, 29а</h3>
-                <button type="button" aria-label="Закрыть">×</button>
-              </div>
-
-              <div class="map-address-meta">
-                <span>21, 23 кабинет; 2 этаж</span>
-              </div>
-
-              <div class="map-phone-row">
-                <span class="map-icon">☎</span>
-                <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
-              </div>
-
-              <div class="map-hours-row">
-                <span class="map-icon">⏰</span>
-                <span data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</span>
-              </div>
-
-              <p class="map-note">Откроется в 15:00, по предварительной записи: пн-пт</p>
-
-              <div class="map-detail-row">
-                <span class="map-icon">📍</span>
-                <span>32 фотографии</span>
-              </div>
-
-              <div class="map-cta-row">
-                <a
-                  class="map-primary-btn"
-                  href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-                  data-contact-field="map-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Найти вход
-                </a>
-                <a
-                  class="map-secondary-btn"
-                  href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-                  data-contact-field="map-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Путь отсюда
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -172,11 +192,16 @@
         <div class="footer-meta">
           <p data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</p>
           <p data-contact-field="city">г. Хабаровск</p>
+          <a href="https://www.instagram.com/poliglot27/" data-contact-field="instagram" target="_blank" rel="noopener noreferrer">@poliglot27</a>
           <p data-year></p>
         </div>
       </div>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <script src="../js/contacts.js?v=20261011"></script>
+    <script src="../js/navigation.js?v=20261011"></script>
+    <script src="../js/modals.js?v=20261011"></script>
+    <script src="../js/slider.js?v=20261011"></script>
+    <script src="../js/map.js?v=20261011"></script>
   </body>
 </html>

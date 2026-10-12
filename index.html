@@ -5,26 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Школа иностранных языков Полиглот — репетитор по английскому и китайскому языку в Хабаровске."
+      content="Школа иностранных языков «Полиглот» — репетитор по английскому и китайскому языку в Хабаровске: дети, взрослые, подготовка к ОГЭ и ЕГЭ."
     />
-    <title>Полиглот | Репетитор по английскому и китайскому</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="theme-color" content="#172633" />
+    <title>Полиглот | Школа иностранных языков в Хабаровске</title>
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content="Полиглот" />
+    <meta property="og:title" content="Полиглот | Школа иностранных языков в Хабаровске" />
+    <meta
+      property="og:description"
+      content="Английский и китайский для детей и взрослых. Бесплатное тестирование, группы по уровню, бесплатные учебники."
+    />
+    <link rel="stylesheet" href="css/styles.css?v=20261011" />
   </head>
   <body>
+    <a class="sr-only" href="#main">Перейти к содержанию</a>
+
     <div class="topbar">
       <div class="container topbar-inner">
         <div class="topbar-main">
-          <div class="phone-group">
-            <span class="phone-icon">☎</span>
-            <a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
-            <span class="work-hours">с 10:00 до 20:00</span>
-            <span class="divider">|</span>
-          </div>
+          <a class="topbar-phone" href="tel:+74212663568">
+            <span class="phone-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+              </svg>
+            </span>
+            <span class="topbar-phone-label" data-contact-field="phone-primary">+66-35-68</span>
+          </a>
+          <span class="work-hours">Пн–Пт, с 10:00 до 20:00</span>
         </div>
 
         <div class="topbar-side">
           <span data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</span>
-          <span>(северный микрорайон)</span>
+          <span class="dot-separator" aria-hidden="true">•</span>
           <span data-contact-field="city">г. Хабаровск</span>
         </div>
       </div>
@@ -32,18 +48,18 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="#top" class="brand" aria-label="Полиглот главная">
-          <span class="brand-mark">П</span>
+        <a href="#main" class="brand" aria-label="Полиглот — на главную">
+          <span class="brand-mark" aria-hidden="true">П</span>
           <span>Полиглот</span>
         </a>
 
-        <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="primary-nav" aria-label="Основная навигация">
           <a href="pages/about.html">О школе</a>
           <a href="pages/programs.html">Программы</a>
           <a href="pages/benefits.html">Преимущества</a>
@@ -54,18 +70,19 @@
       </div>
     </header>
 
-    <main id="top">
+    <main id="main">
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-content">
+            <p class="eyebrow">Хабаровск, северный микрорайон</p>
             <h1>Школа иностранных языков «Полиглот» — английский и китайский для каждого.</h1>
             <p class="hero-text">
-              Мы приглашаем на курсы иностранных языков — английского и китайского.
-              Обучение построено на практическом общении, системной методике и индивидуальном подходе.
+              Приглашаем на курсы английского и китайского языка. Обучение построено на практическом общении,
+              системной методике и индивидуальном подходе к каждому ученику.
             </p>
 
             <div class="hero-actions">
-              <a href="#contact-request" class="btn btn-primary js-open-contact">Записаться на курсы</a>
+              <button type="button" class="btn btn-primary js-open-contact">Записаться на курсы</button>
               <button type="button" class="btn btn-secondary js-open-programs">Посмотреть программы</button>
             </div>
 
@@ -75,8 +92,8 @@
                 <span>учеников</span>
               </div>
               <div>
-                <strong>10+</strong>
-                <span>лет опыта</span>
+                <strong>с 2012</strong>
+                <span>года на рынке</span>
               </div>
               <div>
                 <strong>2</strong>
@@ -88,76 +105,64 @@
               <li>Бесплатное тестирование</li>
               <li>Занятия для детей и взрослых</li>
               <li>Коммуникативный метод обучения</li>
+              <li>бесплатные учебники для групп начального уровня</li>
             </ul>
           </div>
 
           <div class="hero-visual">
-            <div class="photo-collage" aria-label="Фотографии занятий">
-              <div class="photo-card photo-main">
-                <div class="photo-badge">
-                  <span class="status-dot"></span>
-                  Индивидуальный темп обучения
-                </div>
-              </div>
+            <div class="hero-slider" role="region" aria-label="Фотографии занятий">
+              <button class="slider-arrow slider-arrow-prev" type="button" aria-label="Предыдущая фотография">
+                <span aria-hidden="true">‹</span>
+              </button>
 
-              <div class="photo-card photo-side">
-                <div class="mini-people-card">
-                  <span>4.9/5</span>
-                  <small>средний рейтинг</small>
-                </div>
-              </div>
+              <button class="slider-arrow slider-arrow-next" type="button" aria-label="Следующая фотография">
+                <span aria-hidden="true">›</span>
+              </button>
 
-              <div class="photo-stat">
-                <strong>3 000+</strong>
-                <span>учеников</span>
+              <div class="hero-slide is-active">
+                <img
+                  src="assets/img/ca73ae72-3d2f-4038-96e6-c7a0783b3871.jpg"
+                  alt="Преподаватель школы «Полиглот» на занятии"
+                  decoding="async"
+                />
               </div>
+              <div class="hero-slide">
+                <img
+                  src="assets/img/3d200acb-bfb2-49eb-8230-8fb5ad8568fe.jpg"
+                  alt="Группа учеников на уроке английского языка"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="hero-slide">
+                <img
+                  src="assets/img/a404719e-c049-4512-98b2-804fac069bfd.jpg"
+                  alt="Дети занимаются на уроке английского языка"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div class="hero-slider-badges" role="group" aria-label="Переключение фотографий">
+              <button class="slider-dot is-active" aria-label="Фото 1" type="button"></button>
+              <button class="slider-dot" aria-label="Фото 2" type="button"></button>
+              <button class="slider-dot" aria-label="Фото 3" type="button"></button>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="brands container" aria-label="Языки обучения">
-        <span>Английский</span>
-        <span>Китайский</span>
-        <span>Для детей</span>
-        <span>Для взрослых</span>
-        <span>Подготовка к экзаменам</span>
-      </section>
-
-      <section id="about" class="section section-alt">
-        <div class="container about-grid">
-          <div>
-            <p class="eyebrow">О школе</p>
-            <h2>Курсы иностранных языков — языковые курсы для каждого.</h2>
-          </div>
-
-          <div class="feature-list">
-            <div class="feature-item">
-              <span class="icon">01</span>
-              <div>
-                <h3>Комбинированная методика</h3>
-                <p>Школа иностранных языков «Полиглот» предлагает курсы, которые развивают речевые и коммуникативные навыки на всех уровнях.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <span class="icon">02</span>
-              <div>
-                <h3>Мышление на иностранном языке</h3>
-                <p>Мы учим не заучиванию слов, а формированию принципа мышления на языке, чтобы речь звучала естественно.</p>
-              </div>
-            </div>
-
-            <div class="feature-item">
-              <span class="icon">03</span>
-              <div>
-                <h3>Результат уже в короткий срок</h3>
-                <p>Интенсивность занятий и общение позволяют начать полноценный диалог с носителем языка уже после нескольких занятий.</p>
-              </div>
-            </div>
-          </div>
+      <div class="container">
+        <div class="brands" aria-label="Направления обучения">
+          <span>Английский</span>
+          <span>Китайский</span>
+          <span>Для детей</span>
+          <span>Для взрослых</span>
+          <span>Экзамены</span>
         </div>
-      </section>
+      </div>
+
 
       <section id="benefits" class="section container">
         <div class="section-heading narrow">
@@ -167,24 +172,35 @@
 
         <div class="benefits-grid">
           <div class="benefit-box">
-            <div class="benefit-icon">✓</div>
-            <h3>Бесплатное тестирование</h3>
-            <p>Сначала оцениваем уровень, чтобы правильно определить дальнейшую программу.</p>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Многолетний опыт</h3>
+            <p>Школа работает на рынке языковой подготовки много лет и помогает выпускникам уверенно применять язык в жизни.</p>
           </div>
           <div class="benefit-box">
-            <div class="benefit-icon">✓</div>
-            <h3>Группы по уровню</h3>
-            <p>Ученики проходят обучение в комфортной среде, без перегруза и без скуки.</p>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Подбор группы по уровню</h3>
+            <p>Определяем стартовый уровень на бесплатном тестировании и формируем комфортную группу под ваш темп.</p>
           </div>
           <div class="benefit-box">
-            <div class="benefit-icon">✓</div>
-            <h3>много практики</h3>
-            <p>Уделяем внимание именно живой речи, а не зубрежке и формальным правилам.</p>
+            <div class="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3>Бесплатные учебники</h3>
+            <p>Для групп начального уровня мы выдаём комплект учебников совершенно бесплатно.</p>
           </div>
         </div>
       </section>
-
-      <section id="reviews" class="section section-alt">
+<section id="reviews" class="section section-alt">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Отзывы</p>
@@ -193,7 +209,7 @@
 
           <div class="reviews-grid">
             <blockquote class="review-card">
-              “Занятия очень живые и понятные. Я начала говорить на английском гораздо увереннее уже через несколько месяцев.”
+              <p>«Мне очень понравилась атмосфера занятий: всё понятно, без перегруза, но заметный результат есть уже после нескольких месяцев. Начала говорить увереннее.»</p>
               <footer>
                 <strong>Елена М.</strong>
                 <span>Английский для взрослых</span>
@@ -201,7 +217,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Китайский язык всегда казался сложным, но преподаватель объяснял доступно и без перегруза. Очень помогло!”
+              <p>«Китайский язык раньше казался очень сложным, но преподаватель объясняет понятно и по делу. Уроки интересные, а общение на языке становится увереннее.»</p>
               <footer>
                 <strong>Дмитрий К.</strong>
                 <span>Китайский язык</span>
@@ -209,7 +225,7 @@
             </blockquote>
 
             <blockquote class="review-card">
-              “Отличная школа для детей: дисциплина, интересные уроки и понятная программа. Результат заметен сразу.”
+              <p>«Школа помогла ребёнку не просто выучить язык, но и начать говорить с удовольствием. Программа понятная, а занятия живые и вовлекающие.»</p>
               <footer>
                 <strong>Алина П.</strong>
                 <span>Для школьников</span>
@@ -219,106 +235,106 @@
         </div>
       </section>
 
-      <section class="section process">
-        <div class="container">
-          <div class="section-heading narrow">
-            <p class="eyebrow">Как мы работаем</p>
-            <h2>Простой путь от первого шага до результата.</h2>
-          </div>
-
-          <div class="steps-grid">
-            <div class="step-card">
-              <span class="step-number">1</span>
-              <h3>Диагностика</h3>
-              <p>Проводим бесплатное тестирование и определяем уровень.</p>
-            </div>
-            <div class="step-card">
-              <span class="step-number">2</span>
-              <h3>Подбор программы</h3>
-              <p>Составляем план с учетом возраста, целей и темпа обучения.</p>
-            </div>
-            <div class="step-card">
-              <span class="step-number">3</span>
-              <h3>Регулярные занятия</h3>
-              <p>Постоянная практика, поддержка и отслеживание прогресса.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="section map-showcase" aria-label="Как нас найти">
-        <div class="container map-shell">
-          <div class="map-surface" aria-label="Карта офиса">
-            <iframe
-              class="map-iframe"
-              title="Карта офиса Полиглот"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=135.0620,48.4760,135.0810,48.4850&layer=mapnik&marker=48.4795,135.0718"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-
-            <div class="map-controls">
-              <button type="button" aria-label="Увеличить">+</button>
-              <button type="button" aria-label="Уменьшить">−</button>
-              <span>2GIS</span>
+        <div class="container">
+          <div class="map-layout">
+            <div class="map-video-card">
+              <h2 class="map-video-header">Видео о школе</h2>
+              <video
+                class="map-video"
+                controls
+                playsinline
+                preload="metadata"
+                poster="assets/img/ca73ae72-3d2f-4038-96e6-c7a0783b3871.jpg"
+              >
+                <source src="assets/img/adress.mp4" type="video/mp4" />
+                Ваш браузер не поддерживает встроенное видео.
+              </video>
             </div>
 
-            <a
-              class="map-view-btn"
-              href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-              data-contact-field="map-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Посмотреть на карте Хабаровска →
-            </a>
+            <div class="map-surface">
+              <iframe
+                class="map-iframe"
+                title="Карта: офис школы «Полиглот» в Хабаровске"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=135.0389,48.5340,135.0559,48.5416&layer=mapnik&marker=48.537778,135.047443"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
 
-            <div class="map-address-card">
-              <div class="map-header">
-                <h3 data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</h3>
-                <button type="button" aria-label="Закрыть">×</button>
-              </div>
-
-              <div class="map-address-meta">
-                <span>21, 23 кабинет; 2 этаж</span>
-              </div>
-
-              <div class="map-phone-row">
-                <span class="map-icon">☎</span>
-                <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
-              </div>
-
-              <div class="map-hours-row">
-                <span class="map-icon">⏰</span>
-                <span data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</span>
-              </div>
-
-              <p class="map-note">Откроется в 15:00, по предварительной записи: пн-пт</p>
-
-              <div class="map-detail-row">
-                <span class="map-icon">📍</span>
-                <span>32 фотографии</span>
-              </div>
-
-              <div class="map-cta-row">
+              <div class="map-toolbar">
+                <button type="button" class="map-zoom-btn" data-map-action="zoom-in" aria-label="Увеличить карту">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </button>
+                <button type="button" class="map-zoom-btn" data-map-action="zoom-out" aria-label="Уменьшить карту">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+                    <path d="M5 12h14" />
+                  </svg>
+                </button>
                 <a
-                  class="map-primary-btn"
-                  href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-                  data-contact-field="map-link"
+                  class="map-2gis-link"
+                  href="https://2gis.ru/khabarovsk/firm/4926340373584222?m=135.047443%2C48.537778%2F16"
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  Найти вход
-                </a>
-                <a
-                  class="map-secondary-btn"
-                  href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0"
-                  data-contact-field="map-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Путь отсюда
-                </a>
+                  aria-label="Открыть адрес в 2ГИС"
+                >2ГИС</a>
+              </div>
+
+              <a
+                class="map-view-btn"
+                href="https://2gis.ru/khabarovsk/firm/4926340373584222?m=135.047443%2C48.537778%2F16"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Открыть в 2ГИС
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
+
+              <div class="map-address-card">
+                <div class="map-header">
+                  <h3 data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</h3>
+                  <button type="button" class="map-close-btn" aria-label="Скрыть карточку адреса">×</button>
+                </div>
+
+                <p class="map-address-meta">2 этаж, кабинет 21 · г. Хабаровск</p>
+
+                <div class="map-phone-row">
+                  <span class="map-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
+                    </svg>
+                  </span>
+                  <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
+                </div>
+
+                <div class="map-hours-row">
+                  <span class="map-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3.5 2" />
+                    </svg>
+                  </span>
+                  <span data-contact-field="hours">Пн–Пт, с 10:00 до 20:00</span>
+                </div>
+
+                <div class="map-cta-row">
+                  <a
+                    class="map-primary-btn"
+                    href="https://2gis.ru/khabarovsk/firm/4926340373584222?m=135.047443%2C48.537778%2F16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Найти вход</a>
+                  <a
+                    class="map-secondary-btn"
+                    href="https://2gis.ru/khabarovsk/firm/4926340373584222?m=135.047443%2C48.537778%2F16"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Маршрут</a>
+                </div>
               </div>
             </div>
           </div>
@@ -333,41 +349,42 @@
           </div>
 
           <div class="cta-actions">
-            <a href="tel:+74212663568" class="btn btn-primary" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
+            <a href="tel:+74212663568" class="btn btn-primary" data-contact-field="phone-primary">+66-35-68</a>
             <a href="tel:+79141950595" class="btn btn-secondary light-btn" data-contact-field="phone-secondary">+7-914-195-05-95</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer id="contacts" class="site-footer">
+    <footer class="site-footer">
       <div class="container footer-row">
-        <div>
-          <a href="#top" class="brand footer-brand">
-            <span class="brand-mark">П</span>
-            <span>Полиглот</span>
-          </a>
-        </div>
+        <a href="#main" class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true">П</span>
+          <span>Полиглот</span>
+        </a>
 
         <div class="footer-meta">
           <p data-contact-field="address">ул. Профессора Даниловского, 29а, офис 21</p>
-          <p><span data-contact-field="city">г. Хабаровск</span>, Хабаровский край, Россия</p>
-          <p><a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a> | <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a></p>
+          <p data-contact-field="city">г. Хабаровск</p>
+          <span class="footer-phones">
+            <a href="tel:+74212663568" data-contact-field="phone-primary">+66-35-68</a>
+            <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
+          </span>
+          <a href="https://www.instagram.com/poliglot27/" data-contact-field="instagram" target="_blank" rel="noopener noreferrer">@poliglot27</a>
         </div>
 
-        <p>© <span id="year"></span> Полиглот</p>
+        <p class="footer-copy">© <span data-year></span> «Полиглот»</p>
       </div>
     </footer>
-
-    <div class="modal" id="programs-modal" aria-hidden="true">
+<div class="modal" id="programs-modal" aria-hidden="true">
       <div class="modal-backdrop" data-close-modal="true"></div>
       <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="programs-modal-title">
-        <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+        <button class="modal-close" type="button" aria-label="Закрыть окно программ">×</button>
 
         <div class="programs-modal-layout">
           <div class="programs-modal-header">
-            <p class="eyebrow">ПРОГРАММЫ</p>
-            <h3 id="programs-modal-title">Выбирайте формат обучения под себя.</h3>
+            <p class="eyebrow">Программы</p>
+            <h3 id="programs-modal-title">Программы</h3>
           </div>
 
           <div class="modal-programs-grid">
@@ -383,7 +400,7 @@
               </ul>
 
               <div class="modal-price-row">
-                <strong>от 2 000 ₽</strong>
+                <strong>3000 ₽</strong>
                 <span>/ месяц</span>
               </div>
             </article>
@@ -400,14 +417,14 @@
               </ul>
 
               <div class="modal-price-row">
-                <strong>от 2 200 ₽</strong>
+                <strong>3000 ₽</strong>
                 <span>/ месяц</span>
               </div>
             </article>
 
             <article class="modal-program-card">
               <span class="tag alt">Экзамены</span>
-              <h4>Подготовка к ОГЭ / ЕГЭ</h4>
+              <h4>Подготовка к ОГЭ и ЕГЭ</h4>
               <p>Системный подход, проверка знаний и закрепление техники выполнения заданий.</p>
 
               <ul>
@@ -417,7 +434,7 @@
               </ul>
 
               <div class="modal-price-row">
-                <strong>от 2 500 ₽</strong>
+                <strong>3000 ₽</strong>
                 <span>/ месяц</span>
               </div>
             </article>
@@ -429,14 +446,15 @@
     <div class="modal" id="contact-modal" aria-hidden="true">
       <div class="modal-backdrop" data-close-contact-modal="true"></div>
       <div class="modal-dialog contact-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-        <button class="modal-close" type="button" data-close-contact="true" aria-label="Закрыть">×</button>
+        <button class="modal-close" type="button" data-close-contact="true" aria-label="Закрыть окно контактов">×</button>
+
         <p class="eyebrow">Контакты</p>
         <h3 id="contact-modal-title">Записаться на пробный урок</h3>
 
         <div class="contact-info-list">
           <div class="contact-info-row">
-            <span class="contact-label">Телефон:</span>
-            <a href="tel:+74212663568" data-contact-field="phone-primary">+7 (4212) 66-35-68</a>
+            <span class="contact-label">Телефоны:</span>
+            <a href="tel:+74212663568" data-contact-field="phone-primary">+66-35-68</a>
             <a href="tel:+79141950595" data-contact-field="phone-secondary">+7-914-195-05-95</a>
           </div>
 
@@ -457,12 +475,21 @@
         </div>
 
         <div class="contact-actions">
-          <a href="tel:+79141950595" class="btn btn-primary" data-contact-field="phone-secondary" data-contact-keep-label="true">Позвонить</a>
-          <a href="https://2gis.ru/habarovsk/search/%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%81%D0%BE%D1%80%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2029%D0%B0" class="btn btn-secondary" data-contact-field="map-link" target="_blank" rel="noopener noreferrer">На карте</a>
+          <a href="tel:+79141950595" class="btn btn-primary" data-contact-field="phone-secondary">Позвонить</a>
+          <a
+            href="https://2gis.ru/khabarovsk/firm/4926340373584222?m=135.047443%2C48.537778%2F16"
+            class="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >На карте</a>
         </div>
       </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/contacts.js?v=20261011"></script>
+    <script src="js/navigation.js?v=20261011"></script>
+    <script src="js/modals.js?v=20261011"></script>
+    <script src="js/slider.js?v=20261011"></script>
+    <script src="js/map.js?v=20261011"></script>
   </body>
 </html>
