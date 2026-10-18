@@ -3201,6 +3201,8 @@ html {
 .brand-mark {
   width: 41px;
   height: 41px;
+  font-size: 1.1rem;
+}
 
 /* ===== HEADER CONTRAST 2026-10-18: главнее верхней — нижняя шапка ===== */
 
@@ -3233,9 +3235,6 @@ html {
 
 .header-sticky.is-scrolled .site-header {
   box-shadow: 0 26px 50px -16px rgba(23, 38, 51, 0.68);
-}
-
-  font-size: 1.1rem;
 }
 
 .brand span:last-child {
