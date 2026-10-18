@@ -3201,6 +3201,40 @@ html {
 .brand-mark {
   width: 41px;
   height: 41px;
+
+/* ===== HEADER CONTRAST 2026-10-18: главнее верхней — нижняя шапка ===== */
+
+/* Верхняя: спокойная, тёмная, не перетягивает внимание */
+.topbar {
+  background: linear-gradient(100deg, #172734 0%, #1b2d3b 50%, #152432 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+/* Нижняя: главный акцент — белоснежная, с градиентной кромкой и глубокой тенью */
+.site-header {
+  position: relative;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(18px) saturate(1.7);
+  -webkit-backdrop-filter: blur(18px) saturate(1.7);
+  border-bottom: 1px solid rgba(23, 38, 51, 0.1);
+  box-shadow: 0 22px 44px -18px rgba(23, 38, 51, 0.55);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), #f2a173 55%, var(--accent));
+}
+
+.header-sticky.is-scrolled .site-header {
+  box-shadow: 0 26px 50px -16px rgba(23, 38, 51, 0.68);
+}
+
   font-size: 1.1rem;
 }
 
