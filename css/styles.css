@@ -248,7 +248,7 @@ p {
 .topbar {
   background: linear-gradient(90deg, #1b2d3b, #172a38 52%, #101f2b);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-weight: 400;
 }
@@ -259,7 +259,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 8px 14px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 6px 0;
 }
 
@@ -268,7 +268,8 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 .phone-group {
@@ -356,36 +357,46 @@ p {
 }
 
 .nav {
-  min-height: 72px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  font-size: 1.3rem;
+  gap: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .brand-mark {
   display: inline-grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
   background: linear-gradient(135deg, var(--primary), #ef8e63);
   color: white;
   box-shadow: var(--shadow-soft);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 800;
 }
 
 .brand span:last-child {
-  font-size: 1.08rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.nav-menu a.btn {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .nav-menu {
@@ -397,8 +408,9 @@ p {
 
 .nav-menu a {
   color: var(--muted);
-  font-weight: 700;
-  font-size: 0.96rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0;
   position: relative;
   padding-bottom: 4px;
   transition: color 0.22s ease, transform 0.22s ease, opacity 0.22s ease;
@@ -451,7 +463,7 @@ p {
 }
 
 .btn-small {
-  padding: 12px 20px;
+  padding: 9px 18px;
   font-size: 0.9rem;
 }
 
@@ -1202,13 +1214,24 @@ p {
   color: var(--text);
 }
 
+.map-video-wrap {
+  flex: 1 1 auto;
+  min-height: 470px;
+  aspect-ratio: 16 / 10;
+  background: #f6f2ee;
+  overflow: hidden;
+}
+
 .map-video {
   width: 100%;
   height: 100%;
   min-height: 470px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
-  background: #dfe8d9;
+  object-position: center;
+  background: #f6f2ee;
   border: 0;
+  display: block;
 }
 
 .map-surface {
@@ -1701,6 +1724,21 @@ p {
 
 .footer-brand {
   color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand .brand-mark {
+  width: 30px;
+  height: 30px;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.footer-brand span:last-child {
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .footer-meta {
@@ -1854,6 +1892,7 @@ p {
     min-height: 420px;
   }
 
+  .map-video-wrap,
   .map-video {
     min-height: 340px;
   }
@@ -1882,7 +1921,7 @@ p {
 
 @media (max-width: 560px) {
   .topbar {
-    font-size: 0.74rem;
+    font-size: 0.82rem;
   }
 
   .topbar-inner {
@@ -1890,6 +1929,7 @@ p {
     padding: 8px 0;
     gap: 4px;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .topbar-main,
@@ -1898,6 +1938,8 @@ p {
     justify-content: flex-start;
     gap: 6px;
     line-height: 1.4;
+    flex-wrap: wrap;
+    white-space: normal;
   }
 
   .topbar-side {
@@ -1992,6 +2034,7 @@ p {
     min-height: 320px;
   }
 
+  .map-video-wrap,
   .map-video {
     min-height: 240px;
   }
@@ -2081,7 +2124,7 @@ p {
 }
 
 html {
-  scroll-padding-top: 124px;
+  scroll-padding-top: 104px;
 }
 
 /* 5) Самая верхняя шапка не сворачивается при скролле */
@@ -2103,12 +2146,6 @@ html {
   z-index: auto;
 }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 1002;
-}
-
 .site-header {
   top: var(--sticky-header-top);
   z-index: 1001;
@@ -2120,21 +2157,72 @@ html {
 [id="benefits"],
 [id="reviews"],
 [id="contact"] {
-  scroll-margin-top: 124px;
+  scroll-margin-top: 104px;
 }
 
-/* 7) Шапка «Полиглот» уже ~на 30% (1160 -> 812), шрифт не трогаем */
+/* 7) Обе шапки одной ширины: нижняя растянута под верхнюю (1160px). */
+.header-sticky .container.topbar-inner,
 .site-header .container.nav {
-  width: min(var(--header-narrow), calc(100% - 32px));
+  width: min(1160px, calc(100% - 32px));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .topbar-main {
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   row-gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.topbar-main .topbar-phone,
+.topbar-main .topbar-social,
+.topbar-main .work-hours {
+  flex: none;
+  white-space: nowrap;
+}
+
+.topbar-side {
+  flex: none;
+  white-space: nowrap;
 }
 
 .topbar-phone + .topbar-phone {
   margin-left: 2px;
+}
+
+/* Десктоп: адрес не должен выдавливать телефоны из шапки */
+@media (min-width: 981px) {
+  .topbar-side {
+    max-width: 38%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .topbar-side span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Планшет: разрешаем перенос, но без налезания */
+@media (max-width: 980px) {
+  .topbar-inner {
+    flex-wrap: wrap;
+  }
+
+  .topbar-main,
+  .topbar-side {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .topbar-side {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 /* 4) Убираем большие отступы между текстами */
@@ -2244,10 +2332,6 @@ html {
   font-size: 0.82rem;
 }
 
-.footer-brand {
-  font-size: 1rem;
-}
-
 /* 6) Карта: единая компактная плашка, не загораживает здание */
 .map-surface {
   min-height: 480px;
@@ -2263,8 +2347,51 @@ html {
   padding: 14px 14px 12px;
   gap: 6px;
   border-radius: 14px;
+  border-color: rgba(21, 35, 48, 0.1);
   background: rgba(255, 255, 255, 0.96);
+  color: var(--text);
   box-shadow: 0 16px 34px rgba(16, 24, 33, 0.16);
+}
+
+.map-address-card .map-header h3 {
+  color: var(--text);
+}
+
+.map-address-card .map-header button {
+  border-color: rgba(21, 35, 48, 0.14);
+  background: rgba(21, 35, 48, 0.06);
+  color: var(--text);
+}
+
+.map-address-card .map-header button:hover {
+  background: rgba(21, 35, 48, 0.12);
+}
+
+.map-address-card .map-address-meta {
+  color: var(--muted);
+}
+
+.map-address-card .map-phone-row,
+.map-address-card .map-hours-row,
+.map-address-card .map-detail-row {
+  color: var(--text);
+}
+
+.map-address-card .map-phone-row a {
+  color: var(--text);
+}
+
+.map-address-card .map-phone-row a:hover {
+  color: var(--primary-dark);
+}
+
+.map-address-card .map-secondary-btn {
+  border-color: rgba(21, 35, 48, 0.18);
+  color: var(--text);
+}
+
+.map-address-card .map-secondary-btn:hover {
+  background: rgba(21, 35, 48, 0.07);
 }
 
 .map-address-card h3 {
@@ -2368,8 +2495,13 @@ html {
     grid-template-columns: 1fr;
   }
 
+  .header-sticky .container.topbar-inner,
   .site-header .container.nav {
-    width: min(var(--header-narrow), calc(100% - 32px));
+    width: min(1160px, calc(100% - 32px));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
