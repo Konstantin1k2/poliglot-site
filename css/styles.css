@@ -3145,6 +3145,117 @@ html {
 .dot-separator {
   margin: 0 2px;
 }
+/* ===== HEADER TEXT SIZES 2026-10-18: меньше верхняя, больше нижняя ===== */
+
+/* Верхняя шапка: компактнее */
+.topbar-inner {
+  min-height: 40px;
+  padding: 5px 0;
+}
+
+.topbar-phone {
+  gap: 8px;
+}
+
+.topbar-phone-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.phone-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.phone-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.work-hours {
+  padding: 3px 11px;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+}
+
+.topbar-social {
+  padding: 3px 11px;
+  font-size: 0.78rem;
+}
+
+.topbar-social svg {
+  width: 14px;
+  height: 14px;
+}
+
+.topbar-side {
+  font-size: 0.78rem;
+}
+
+/* Нижняя шапка: крупнее */
+.brand {
+  gap: 13px;
+}
+
+.brand-mark {
+  width: 41px;
+  height: 41px;
+  font-size: 1.1rem;
+}
+
+.brand span:last-child {
+  font-size: 1.18rem;
+}
+
+.nav-menu {
+  gap: 34px;
+}
+
+.nav-menu a {
+  font-size: 1.03rem;
+  padding: 8px 0;
+}
+
+.nav-menu a.btn,
+.nav-menu .btn-small {
+  padding: 12px 26px;
+  font-size: 0.97rem;
+}
+
+@media (max-width: 560px) {
+  .topbar-phone-label {
+    font-size: 0.8rem;
+  }
+
+  .work-hours {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .topbar-social {
+    font-size: 0.74rem;
+  }
+
+  .topbar-side {
+    font-size: 0.74rem;
+  }
+
+  .brand-mark {
+    width: 37px;
+    height: 37px;
+    font-size: 1rem;
+  }
+
+  .brand span:last-child {
+    font-size: 1.05rem;
+  }
+
+  .nav-menu.open a {
+    font-size: 1.05rem;
+  }
+}
+
 
 /* Название школы: объёмный тёмно-синий градиентный текст */
 .brand span:last-child {
