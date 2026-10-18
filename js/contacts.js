@@ -5,7 +5,7 @@
  */
 (() => {
   const CONTACTS = {
-    'phone-primary': { label: '+7-4212-66-35-68', href: 'tel:+74212663568' },
+    'phone-primary': { label: '+66-35-68', href: 'tel:+663568' },
     'phone-secondary': { label: '+7-914-195-05-95', href: 'tel:+79141950595' },
     email: { label: 'info@poliglot27.ru', href: 'mailto:info@poliglot27.ru' },
     address: { label: 'ул. Профессора Даниловского, 29а, офис 21' },

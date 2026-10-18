@@ -2770,6 +2770,7 @@ html {
   .info-highlight-box {
     grid-template-columns: 1fr;
   }
+}
 
 /* ===== POLIGLOT HEADER REDESIGN 2026-10-18: редизайн верхней и нижней шапок ===== */
 :root {
@@ -3317,4 +3318,431 @@ html {
 }
 
 
+/* ===== DESIGN REFRESH 2026-10-18: меньше шаблонности, больше характера ===== */
+
+/* --- Фоновая текстура страницы --- */
+body {
+  background-color: #ede8e0;
+  background-image:
+    radial-gradient(ellipse 900px 500px at 10% 0%, rgba(229, 127, 82, 0.07), transparent),
+    radial-gradient(ellipse 700px 600px at 92% 80%, rgba(23, 38, 51, 0.05), transparent);
 }
+
+/* --- Hero: асимметричный акцент за слайдером --- */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -30px -20px -30px -20px;
+  background: radial-gradient(ellipse 70% 70% at 60% 50%, rgba(229, 127, 82, 0.13), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* --- Hero grid: выровнять по центру по вертикали --- */
+.hero-grid {
+  align-items: center;
+}
+
+/* --- Числовые метрики: акцентный градиент на цифрах --- */
+.hero-meta strong {
+  background: linear-gradient(120deg, var(--accent) 0%, #3a5f80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* --- hero-meta div: убираем монотонность, немного асимметрии --- */
+.hero-meta div:nth-child(2) {
+  transform: translateY(-4px);
+}
+
+/* --- Eyebrow: добавляем маленькую линию перед текстом --- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* --- Карточки программ: разные акцентные цвета левой полосы --- */
+.program-card {
+  border-left: 3px solid transparent;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 44px rgba(23, 38, 51, 0.1);
+  border-left-color: var(--primary);
+}
+
+.program-card.featured {
+  border-left-color: var(--primary);
+  background: linear-gradient(160deg, #fff 60%, rgba(229, 127, 82, 0.05));
+}
+
+/* --- step-card: вместо одинакового белого — лёгкий градиент --- */
+.step-card {
+  background: linear-gradient(145deg, #fff 0%, #f8f4f0 100%);
+  border-left: 3px solid rgba(229, 127, 82, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+}
+
+.step-card:hover {
+  border-left-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(23, 38, 51, 0.09);
+}
+
+/* step-number: ✓ выглядит лучше как чекмарк-иконка */
+.step-number {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+}
+
+/* --- feature-item: убираем рамку, делаем мягче --- */
+.feature-item {
+  background: linear-gradient(145deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.55) 100%);
+  border: 1px solid rgba(229, 127, 82, 0.1);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(229, 127, 82, 0.3);
+  transform: translateX(4px);
+}
+
+/* --- Отзывы: цитата-оформление --- */
+.review-card {
+  position: relative;
+}
+
+.review-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(229, 127, 82, 0.13);
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.review-text {
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- CTA box: чуть ярче, с паттерном точек --- */
+.cta-box {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(229, 127, 82, 0.2), transparent 45%),
+    linear-gradient(135deg, #1c2f3d, #152734);
+  box-shadow: 0 32px 64px -20px rgba(16, 25, 35, 0.55);
+}
+
+/* --- info-highlight-box: живее --- */
+.info-highlight-box {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(229, 127, 82, 0.18), transparent 50%),
+    linear-gradient(135deg, #172633 0%, #243b4f 100%);
+}
+
+/* --- badge-item: hover --- */
+.badge-item {
+  transition: background 0.22s ease, transform 0.22s ease;
+  cursor: default;
+}
+
+.badge-item:hover {
+  background: rgba(255, 255, 255, 0.17);
+  transform: translateX(4px);
+}
+
+/* --- footer: чуть теплее --- */
+.site-footer {
+  background: linear-gradient(160deg, #e9e4dc 0%, #e4dfd6 100%);
+  border-top: 1px solid rgba(23, 38, 51, 0.1);
+}
+
+/* --- about-grid: разрыв между колонками --- */
+.about-grid {
+  gap: 48px;
+}
+
+.about-points {
+  gap: 14px;
+  display: grid;
+}
+
+/* --- page-intro: чуть больше пространства вверху --- */
+.page-intro {
+  padding-top: 52px;
+  padding-bottom: 20px;
+}
+
+/* --- section-alt: мягче граница --- */
+.section-alt {
+  background: linear-gradient(180deg, #f4ede5 0%, #f0e9e0 100%);
+}
+
+/* --- Контакты: более компактный header страницы --- */
+.contact-layout {
+  margin-top: 20px;
+}
+
+/* --- Программы list: 2 колонки на планшете --- */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .programs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Мобильные улучшения --- */
+@media (max-width: 560px) {
+  .hero-meta div:nth-child(2) {
+    transform: none;
+  }
+
+  .hero-visual::before {
+    display: none;
+  }
+
+  .feature-item:hover {
+    transform: none;
+  }
+
+  .program-card:hover {
+    transform: none;
+  }
+}
+
+/* --- Hero: асимметричный акцент за слайдером --- */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -30px -20px -30px -20px;
+  background: radial-gradient(ellipse 70% 70% at 60% 50%, rgba(229, 127, 82, 0.13), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* --- Hero grid: выровнять по центру по вертикали --- */
+.hero-grid {
+  align-items: center;
+}
+
+/* --- Числовые метрики: акцентный градиент на цифрах --- */
+.hero-meta strong {
+  background: linear-gradient(120deg, var(--accent) 0%, #3a5f80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* --- hero-meta div: убираем монотонность, немного асимметрии --- */
+.hero-meta div:nth-child(2) {
+  transform: translateY(-4px);
+}
+
+/* --- Eyebrow: добавляем маленькую линию перед текстом --- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* --- Карточки программ: разные акцентные цвета левой полосы --- */
+.program-card {
+  border-left: 3px solid transparent;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 44px rgba(23, 38, 51, 0.1);
+  border-left-color: var(--primary);
+}
+
+.program-card.featured {
+  border-left-color: var(--primary);
+  background: linear-gradient(160deg, #fff 60%, rgba(229, 127, 82, 0.05));
+}
+
+/* --- step-card: вместо одинакового белого — лёгкий градиент --- */
+.step-card {
+  background: linear-gradient(145deg, #fff 0%, #f8f4f0 100%);
+  border-left: 3px solid rgba(229, 127, 82, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+}
+
+.step-card:hover {
+  border-left-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(23, 38, 51, 0.09);
+}
+
+/* step-number: ✓ выглядит лучше как чекмарк-иконка */
+.step-number {
+  font-size: 1.3rem;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  line-height: 1;
+}
+
+/* --- feature-item: убираем рамку, делаем мягче --- */
+.feature-item {
+  background: linear-gradient(145deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.55) 100%);
+  border: 1px solid rgba(229, 127, 82, 0.1);
+  backdrop-filter: blur(4px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(229, 127, 82, 0.3);
+  transform: translateX(4px);
+}
+
+/* --- Отзывы: цитата-оформление --- */
+.review-card {
+  position: relative;
+}
+
+.review-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(229, 127, 82, 0.13);
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.review-text {
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- CTA box: чуть ярче, с паттерном точек --- */
+.cta-box {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(229, 127, 82, 0.2), transparent 45%),
+    linear-gradient(135deg, #1c2f3d, #152734);
+  box-shadow: 0 32px 64px -20px rgba(16, 25, 35, 0.55);
+}
+
+/* --- info-highlight-box: живее --- */
+.info-highlight-box {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(229, 127, 82, 0.18), transparent 50%),
+    linear-gradient(135deg, #172633 0%, #243b4f 100%);
+}
+
+/* --- badge-item: hover --- */
+.badge-item {
+  transition: background 0.22s ease, transform 0.22s ease;
+  cursor: default;
+}
+
+.badge-item:hover {
+  background: rgba(255, 255, 255, 0.17);
+  transform: translateX(4px);
+}
+
+/* --- footer: чуть теплее --- */
+.site-footer {
+  background: linear-gradient(160deg, #e9e4dc 0%, #e4dfd6 100%);
+  border-top: 1px solid rgba(23, 38, 51, 0.1);
+}
+
+/* --- about-grid: разрыв между колонками --- */
+.about-grid {
+  gap: 48px;
+}
+
+.about-points {
+  gap: 14px;
+  display: grid;
+}
+
+/* --- page-intro: чуть больше пространства вверху --- */
+.page-intro {
+  padding-top: 52px;
+  padding-bottom: 20px;
+}
+
+/* --- section-alt: мягче граница --- */
+.section-alt {
+  background: linear-gradient(180deg, #f4ede5 0%, #f0e9e0 100%);
+}
+
+/* --- Контакты: более компактный header страницы --- */
+.contact-layout {
+  margin-top: 20px;
+}
+
+/* --- Программы list: 2 колонки на планшете --- */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .programs-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Мобильные улучшения --- */
+@media (max-width: 560px) {
+  .hero-meta div:nth-child(2) {
+    transform: none;
+  }
+
+  .hero-visual::before {
+    display: none;
+  }
+
+  .feature-item:hover {
+    transform: none;
+  }
+
+  .program-card:hover {
+    transform: none;
+  }
+}
+
