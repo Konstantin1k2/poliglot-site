@@ -15,7 +15,6 @@ index.html            — главная (лендинг): hero-слайдер, 
 pages/
   about.html          — О школе
   programs.html       — Программы обучения
-  benefits.html       — Преимущества
   reviews.html        — Отзывы
   contacts.html       — Контакты и карта
 css/styles.css        — единый файл стилей (дизайн-токены, компоненты, адаптив)

@@ -248,18 +248,19 @@ p {
 .topbar {
   background: linear-gradient(90deg, #1b2d3b, #172a38 52%, #101f2b);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-weight: 400;
 }
 
 .topbar-inner {
-  min-height: 46px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 18px;
+  gap: 8px 14px;
   flex-wrap: wrap;
-  padding: 4px 0;
+  padding: 6px 0;
 }
 
 .topbar-main,
@@ -275,7 +276,7 @@ p {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .phone-group a {
@@ -286,7 +287,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 800;
+  font-weight: 400;
   color: #fff;
 }
 
@@ -303,13 +304,19 @@ p {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.09);
   color: #fff;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+}
+
+.phone-icon svg {
+  width: 14px;
+  height: 14px;
 }
 
 .work-hours,
 .link-muted,
 .topbar-side span {
   color: rgba(255, 255, 255, 0.78);
+  font-weight: 400;
 }
 
 .topbar-side {
@@ -319,6 +326,24 @@ p {
 
 .dot-separator {
   color: rgba(255, 255, 255, 0.45);
+}
+
+.topbar-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.topbar-social:hover {
+  color: var(--primary);
+}
+
+.topbar-social svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
 }
 
 .site-header {
@@ -550,15 +575,21 @@ p {
   min-height: 440px;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 28px 60px rgba(25, 35, 48, 0.14);
+  box-shadow:
+    0 32px 64px -18px rgba(25, 35, 48, 0.3),
+    0 10px 26px rgba(25, 35, 48, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(25, 35, 48, 0.08);
   background: #d9dadf;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .hero-slider:hover {
-  box-shadow: 0 34px 70px rgba(25, 35, 48, 0.18);
-  transform: none;
+  box-shadow:
+    0 40px 80px -18px rgba(25, 35, 48, 0.36),
+    0 12px 30px rgba(25, 35, 48, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
 }
 
 .slider-arrow {
@@ -566,40 +597,30 @@ p {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 42px;
-  height: 42px;
-  border: 0;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  background: rgba(13, 18, 23, 0.38);
+  background: rgba(13, 18, 23, 0.45);
+  backdrop-filter: blur(10px);
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.9rem;
   line-height: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease, background 0.2s ease, transform 0.2s ease;
-}
-
-.hero-slider:hover .slider-arrow,
-.hero-slider:focus-within .slider-arrow {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hero-slider:not(:hover):not(:focus-within) .slider-arrow {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.92;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
 .slider-arrow:hover {
-  background: rgba(13, 18, 23, 0.55);
+  background: rgba(13, 18, 23, 0.72);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .slider-arrow:active {
-  transform: translateY(-50%) scale(0.96);
+  transform: translateY(-50%) scale(0.95);
 }
 
 .slider-arrow-prev {
@@ -644,48 +665,73 @@ p {
   animation: imageShift 15s ease-in-out infinite alternate;
 }
 
+/* Виньетка снизу кадра — панель управления читается поверх любой фотографии. */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(11, 16, 22, 0) 55%, rgba(11, 16, 22, 0.45) 100%);
+}
+
 .hero-slider-badges {
   position: absolute;
-  right: 18px;
-  bottom: 18px;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
   z-index: 12;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(18, 21, 25, 0.52);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 20px rgba(17, 23, 31, 0.18);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-}
-
-.hero-slider:hover .hero-slider-badges,
-.hero-slider:focus-within .hero-slider-badges {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  background: rgba(18, 21, 25, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 26px rgba(17, 23, 31, 0.28);
 }
 
 .slider-dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+  transition: width 0.3s ease, background 0.3s ease, opacity 0.2s ease;
+}
+
+.slider-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .slider-dot.is-active {
-  background: #ffffff;
-  border-color: rgba(255, 255, 255, 0.94);
-  transform: scale(1.12);
+  width: 26px;
+  background: linear-gradient(90deg, var(--primary), #ef8e63);
+}
+
+.slider-counter {
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.hero-slider-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  z-index: 13;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, var(--primary), #ef8e63);
+  box-shadow: 0 0 14px rgba(229, 127, 82, 0.65);
 }
 
 .brands {
@@ -2026,3 +2072,349 @@ p {
     font-size: 2rem;
   }
 }
+
+/* ===== POLIGLOT FIX PACK 2026-10-18: верхняя шапка, подвал, отступы, карта, hero, контакты, программы ===== */
+:root {
+  --topbar-h: 40px;
+  --sticky-header-top: 40px;
+  --header-narrow: 812px;
+}
+
+html {
+  scroll-padding-top: 124px;
+}
+
+/* 5) Самая верхняя шапка не сворачивается при скролле */
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+}
+
+.header-sticky .topbar {
+  position: static;
+  top: auto;
+  z-index: auto;
+}
+
+.header-sticky .site-header {
+  position: static;
+  top: auto;
+  z-index: auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1002;
+}
+
+.site-header {
+  top: var(--sticky-header-top);
+  z-index: 1001;
+}
+
+.section[id],
+[id="main"],
+[id="about"],
+[id="benefits"],
+[id="reviews"],
+[id="contact"] {
+  scroll-margin-top: 124px;
+}
+
+/* 7) Шапка «Полиглот» уже ~на 30% (1160 -> 812), шрифт не трогаем */
+.site-header .container.nav {
+  width: min(var(--header-narrow), calc(100% - 32px));
+}
+
+.topbar-main {
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+
+.topbar-phone + .topbar-phone {
+  margin-left: 2px;
+}
+
+/* 4) Убираем большие отступы между текстами */
+.section {
+  padding: 48px 0;
+}
+
+.page-intro {
+  padding-bottom: 10px;
+}
+
+.page-intro h1 {
+  margin-bottom: 12px;
+}
+
+.page-intro p {
+  margin-top: 12px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  margin-top: 8px;
+}
+
+.hero {
+  padding: 36px 0 28px;
+}
+
+.hero-grid {
+  gap: 36px;
+}
+
+.hero-content h1 {
+  margin-bottom: 14px;
+}
+
+.hero-lead {
+  margin: 0 0 18px;
+}
+
+.hero-actions {
+  margin: 20px 0 18px;
+}
+
+/* 3) Красивое оформление блока преимуществ */
+.hero-trust {
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.hero-trust li {
+  padding: 10px 14px 10px 36px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(21, 35, 48, 0.09);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(23, 38, 51, 0.08);
+  font-weight: 700;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  color: var(--accent);
+  backdrop-filter: blur(6px);
+}
+
+.hero-trust li::before {
+  left: 13px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--primary) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / 10px 10px no-repeat;
+}
+
+/* Плавная смена фото на главной */
+.hero-slide {
+  transition: opacity 1.25s ease;
+}
+
+.hero-slide img {
+  transition: transform 7s ease, opacity 1.25s ease;
+}
+
+/* 2) Нижняя шапка ~в 2 раза ниже */
+.site-footer {
+  padding: 14px 0 16px;
+}
+
+.footer-row {
+  gap: 10px 20px;
+  row-gap: 8px;
+}
+
+.footer-meta {
+  gap: 4px 18px;
+  font-size: 0.9rem;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.footer-brand {
+  font-size: 1rem;
+}
+
+/* 6) Карта: единая компактная плашка, не загораживает здание */
+.map-surface {
+  min-height: 480px;
+}
+
+.map-address-card {
+  left: 14px;
+  bottom: 14px;
+  top: auto;
+  right: auto;
+  width: min(288px, calc(100% - 28px));
+  max-width: 288px;
+  padding: 14px 14px 12px;
+  gap: 6px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 34px rgba(16, 24, 33, 0.16);
+}
+
+.map-address-card h3 {
+  font-size: 0.98rem;
+  line-height: 1.3;
+}
+
+.map-address-meta {
+  font-size: 0.82rem;
+  margin-bottom: 4px;
+}
+
+.map-phone-row,
+.map-hours-row,
+.map-detail-row {
+  font-size: 0.86rem;
+}
+
+.map-cta-row {
+  margin-top: 8px;
+}
+
+.map-primary-btn,
+.map-secondary-btn {
+  padding: 8px 10px;
+  font-size: 0.84rem;
+}
+
+/* 9) Контакты: сильно уменьшенный заголовок */
+.contact-panel h2 {
+  font-size: 1.18rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+
+.contact-info-list {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.contact-info-row {
+  gap: 6px 12px;
+  padding: 8px 0;
+}
+
+/* Программы без фото: только 3 карточки как на главной */
+.programs-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+}
+
+.program-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.program-card h2,
+.program-card h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.program-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.program-card ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+  color: var(--text);
+  font-size: 0.95rem;
+  display: grid;
+  gap: 6px;
+}
+
+.program-card .price-row {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .programs-list {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header .container.nav {
+    width: min(var(--header-narrow), calc(100% - 32px));
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --sticky-header-top: 0px;
+  }
+
+  .site-header {
+    top: 0;
+  }
+
+  .map-surface {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .hero {
+    padding: 24px 0 16px;
+  }
+
+  .hero-trust li {
+    width: 100%;
+    font-size: 0.84rem;
+  }
+
+  .site-footer {
+    padding: 12px 0 14px;
+  }
+
+  .map-address-card {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    width: auto;
+    max-width: none;
+  }
+
+  .contact-panel h2 {
+    font-size: 1.05rem;
+  }
+}
+

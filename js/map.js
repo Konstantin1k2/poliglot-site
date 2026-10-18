@@ -3,10 +3,10 @@
  * Зум реализован пересборкой bbox для встроенной карты OpenStreetMap.
  */
 (() => {
-  const BASE_LAT = 48.537778;
-  const BASE_LON = 135.047443;
-  const BASE_LAT_SPAN = 0.0076;
-  const BASE_LON_SPAN = 0.017;
+  const BASE_LAT = 48.535569;
+  const BASE_LON = 135.046971;
+  const BASE_LAT_SPAN = 0.0062;
+  const BASE_LON_SPAN = 0.0126;
   const ZOOM_STEP = 0.18;
   const MIN_LEVEL = -3;
   const MAX_LEVEL = 4;
