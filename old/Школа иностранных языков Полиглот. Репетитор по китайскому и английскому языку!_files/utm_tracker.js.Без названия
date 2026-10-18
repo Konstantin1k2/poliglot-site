@@ -1,0 +1,27 @@
+(function () {
+	try {
+		if (location.search.indexOf('utm_source=') === -1) return;
+
+		const p = new URLSearchParams(location.search);
+		const src = p.get('utm_source');
+		if (!src) return;
+
+		const payload = JSON.stringify({
+			d: location.hostname,
+			s: src,
+			m: p.get('utm_medium'),
+			c: p.get('utm_campaign'),
+			all: Object.fromEntries(p.entries())
+		})
+
+		const url = 'https://hw2lu5-87-225-77-252.ru.tuna.am/administrator/components/com_crmmenedjer/data/func/utm_tracker/utm_collect.php';
+
+		(window.requestIdleCallback || function (f) { setTimeout(f, 0); })(function () {
+			if (navigator.sendBeacon) {
+				navigator.sendBeacon(url, payload);
+			} else {
+				fetch(url, { method: 'POST', body: payload, keepalive: true, mode: "no-cors" });
+			}
+		}, { timeout: 2000 })
+	} catch (e) {}
+})();

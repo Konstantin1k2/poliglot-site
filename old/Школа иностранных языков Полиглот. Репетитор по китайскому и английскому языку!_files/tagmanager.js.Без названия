@@ -1,0 +1,269 @@
+(() => {
+    class TagRedline extends HTMLElement {
+        isSuccessInsert = false;
+
+        constructor() {
+            super();
+        }
+
+        connectedCallback() {
+            this.isSuccessInsert = true;
+        }
+
+        disconnectedCallback() {
+            this.isSuccessInsert = false;
+        }
+
+        getIsSuccessInsert() {
+            return this.isSuccessInsert;
+        }
+    }
+
+    // customElements.define("tag-redline", TagRedline);
+
+    // Попытка регистрации пользовательского элемента
+    try {
+        customElements.define("tag-redline", TagRedline);
+    } catch (error) {
+        if (error instanceof DOMException && error.code === DOMException.INVALID_ACCESS_ERR) {
+            console.warn('Элемент с именем tag-redline уже зарегистрирован.');
+        } else {
+            console.error('Произошла ошибка при регистрации пользовательского элемента:', error);
+        }
+    }
+
+
+
+    const handlerPath = 'https://prod-dv.ru/administrator/components/com_crmmadmin/data/func/tagmanager/handler.php';
+    const currentURI = new URL(window.location);
+    const debugMode = currentURI.searchParams.get('tgdebug') === 'true' ? true : false;
+
+    function getCurrentDomain() {
+        return window.location.hostname;
+    }
+
+    function sendRequestEditStatusInstalledScript() {
+        return new Promise(function (resolve, reject) {
+            const xhr = new XMLHttpRequest();
+            const url = handlerPath;
+            const currentDomain = getCurrentDomain();
+            const formData = new FormData();
+
+            formData.append('domain', currentDomain);
+            formData.append('action', 'set_network');
+
+            xhr.open('POST', url, true);
+
+            xhr.onload = function (response) {
+                let responseObject = JSON.parse(xhr.response);
+
+                if (xhr.status === 200 && responseObject.status === 'error') {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Установка статуса установленного скрипта подмены: ${responseObject.message}`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                        );
+                    }
+
+                    resolve(false);
+                } else if (xhr.status === 200 && responseObject.status === 'successfull') {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Установка статуса установленного скрипта подмены: ${responseObject.message}`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: green; padding: 2px;`,
+                        );
+                    }
+
+                    resolve(true);
+                } else {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Установка статуса установленного скрипта подмены: Ошибка получения ответа от сервера.`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                        );
+
+                        reject(new Error("Произошла ошибка"));
+                    }
+
+                    reject(false);
+                }
+            };
+
+            xhr.onerror = function (error) {
+                if (debugMode) {
+                    console.log(
+                        `%cRedLine TagManager. Установка статуса установленного скрипта подмены: Запрос не удался. Проверьте соединение с сервером.`,
+                        `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                    );
+
+                    reject(new Error("Произошла ошибка"));
+                }
+
+                reject(false);
+            };
+
+            xhr.send(formData);
+        });
+    }
+
+
+    /**
+     * Получает данные текущего домена
+     * 
+     * @return {Promise} Объект промиса, содержащий данные о домене в формате JSON 
+     */
+    let getDomain = function () {
+        return new Promise(function (resolve, reject) {
+            const xhr = new XMLHttpRequest();
+            const url = handlerPath;
+            const currentDomain = getCurrentDomain();
+            const formData = new FormData();
+
+            formData.append('domain', currentDomain);
+            formData.append('action', 'get_content');
+
+            xhr.open('POST', url, true);
+
+            xhr.onload = function (response) {
+                let responseObject = JSON.parse(xhr.response);
+
+                if (xhr.status === 200 && responseObject.status === 'error') {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Получение домена: ${responseObject.message}`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                        );
+                    }
+
+                    resolve(false);
+                } else if (xhr.status === 200 && responseObject.status === 'successfull') {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Получение домена: ${responseObject.message}`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: green; padding: 2px;`,
+                        );
+                    }
+
+                    domain = JSON.parse(responseObject.data);
+
+                    resolve(domain);
+                } else {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Получение домена: ${responseObject.message}`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                        );
+
+                        reject(new Error("Произошла ошибка"));
+                    }
+
+                    resolve(false);
+                }
+            };
+
+            xhr.onerror = function (error) {
+                if (debugMode) {
+                    console.log(
+                        `%cRedLine TagManager. Получение домен: Запрос не удался. Проверьте соединение с сервером!`,
+                        `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                    );
+
+                    reject(new Error("Произошла ошибка"));
+                }
+
+                resolve(false);
+            };
+
+            xhr.send(formData);
+        });
+    }
+
+    function appendElement(selector, content, utms = [], params = []) {
+        const targetElement = document.querySelector(selector);
+        const currentURL = new URL(window.location);
+        let numberMismatches = 0;
+
+        currentURI.searchParams.delete('tgdebug');
+
+        const currentSearchParamsUTM = Array.from(currentURI.searchParams);
+
+        if (targetElement) {
+            if (utms.length === currentSearchParamsUTM.length) {
+                for (let i = 0; i < utms.length; i++) {
+                    if (utms[i][0] !== currentSearchParamsUTM[i][0] || utms[i][1] !== currentSearchParamsUTM[i][1]) {
+                        numberMismatches++;
+                    }
+                }
+            } else {
+                numberMismatches++;
+            }
+
+            if (numberMismatches > 0) {
+                if (debugMode) {
+                    console.log(
+                        `%cRedLine TagManager. Вставка пользовательского HTML-кода: Параметры в UTM-метках не соответствуют заданным пользователем!`,
+                        `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                    )
+                }
+            } else {
+                if (params.active) {
+                    let nodeContent = document.createRange().createContextualFragment(content);
+                    let nodeMarker = document.createElement('tag-redline');//Элемент, в который будет вставлен пользовательский HTML-код. В свою очередь данный элемент будет вставлен в указанный пользователем элемент с селектором selector
+
+                    nodeMarker.append(nodeContent);
+                    targetElement.prepend(nodeMarker);
+                    let isSuccessInsert = nodeMarker.getIsSuccessInsert();
+
+                    if (debugMode) {
+                        if (isSuccessInsert) {
+                            console.log(
+                                `%cRedLine TagManager. Вставка пользовательского HTML-кода: Пользовательский HTML-код успешно вставлен в элемент с селектором ${selector}`,
+                                `color: white; font-weight: bold; font-style: italic; background-color: green; padding: 2px;`,
+                            );
+                        } else {
+                            console.log(
+                                `%cRedLine TagManager. Вставка пользовательского HTML-кода: Пользовательский HTML-код не был вставлен в элемент с селектором ${selector}. Неизвестная ошибка!`,
+                                `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                            );
+                        }
+                    }
+                } else {
+                    if (debugMode) {
+                        console.log(
+                            `%cRedLine TagManager. Вставка пользовательского HTML-кода: Пользовательский HTML-код не был вставлен в элемент с селектором ${selector}. Домен неактивен!`,
+                            `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                        );
+                    }
+                }
+            }
+        } else {
+            if (debugMode) {
+                console.log(
+                    `%cRedLine TagManager. Вставка пользовательского HTML-кода: Не удалось найти целевой элемент с селектором ${selector}. Целевой элемент: ${targetElement}!`,
+                    `color: white; font-weight: bold; font-style: italic; background-color: red; padding: 2px;`,
+                )
+            }
+        }
+    }
+
+    window.addEventListener('load', (event) => {
+        sendRequestEditStatusInstalledScript()
+            .then(function (result) {
+                if (result === true) {
+                    getDomain()
+                        .then(function (domain) {
+                            if (domain !== false) {
+                                const selector = domain.domenSelector;
+                                const content = domain.selectorContent;
+                                let utms = JSON.parse(domain.utms);
+                                let params = {
+                                    'active': (domain.active === '1') ? true : false,
+                                };
+
+                                appendElement(selector, content, utms, params);
+                            }
+                        });
+                }
+            });
+    });
+})();
