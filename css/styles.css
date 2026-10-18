@@ -3094,4 +3094,83 @@ html {
   }
 }
 
+/* ===== POLIGLOT HEADER TEXT POLISH 2026-10-18: типографика шапок ===== */
+
+/* Телефоны: крупнее, плотнее, с табличными цифрами и мягкой тенью */
+.topbar-phone {
+  gap: 9px;
+}
+
+.topbar-phone-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.topbar-phone:hover .topbar-phone-label {
+  text-decoration: underline;
+  text-decoration-color: rgba(229, 127, 82, 0.9);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Часы работы: мини-капс с широким трекингом — читается как статус «открыто» */
+.work-hours {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Instagram: аккуратный ник */
+.topbar-social {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Адрес и город: мягче адрес, акцентнее город */
+.topbar-side {
+  letter-spacing: 0.01em;
+}
+
+.topbar-side span[data-contact-field="city"] {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+.dot-separator {
+  margin: 0 2px;
+}
+
+/* Название школы: объёмный тёмно-синий градиентный текст */
+.brand span:last-child {
+  background: linear-gradient(120deg, var(--accent) 55%, #3b5876);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Пункты меню: чуть крупнее и воздушнее */
+.nav-menu a {
+  font-size: 0.95rem;
+  letter-spacing: 0.015em;
+}
+
+@media (max-width: 560px) {
+  .work-hours {
+    font-size: 0.66rem;
+    letter-spacing: 0.09em;
+  }
+
+  .topbar-phone-label {
+    font-size: 0.88rem;
+  }
+}
+
+
 }
