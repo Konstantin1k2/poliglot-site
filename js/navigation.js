@@ -47,6 +47,16 @@
     node.textContent = currentYear;
   });
 
+  // Подсветка (тень) шапки при скролле
+  const headerSticky = document.querySelector('.header-sticky');
+  if (headerSticky) {
+    const updateHeaderShadow = () => {
+      headerSticky.classList.toggle('is-scrolled', window.scrollY > 8);
+    };
+    updateHeaderShadow();
+    window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+  }
+
   const revealTargets = document.querySelectorAll('.section, .hero, .cta-box, .map-shell, .feature-box, .course-card, .benefit-box, .review-card, .step-card, .feature-item');
 
   if ('IntersectionObserver' in window) {
